@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SKU Generator</title>
+
+    <style>
+          body {
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            background-color: #532673 ;
+            color: white;
+            text-align: center;
+        }
+
+        nav {
+            background-color: #1e0f2a;
+            padding: 15px;
+            text-align: right;
+        }
+        nav a {
+            color: whitesmoke;
+            margin: 0 15px;
+            font-weight: bold;
+        }
+
+        .container {
+            background-color: white;
+            color: black ;
+            width: 350px;
+            margin: 50px auto;
+            border-radius: 10px;
+        }
+
+        .header {
+            background-color: #54356e;
+            color: white;
+            padding: 20px;
+        }
+
+        .content {
+            padding: 20px;
+            text-align: left;
+        }
+
+        label {
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 8px;
+            margin: 8px 0 15px 0;
+            box-sizing: border-box;
+        }
+
+        button {
+            width: 100%;
+            padding: 8px;
+            background-color:#54356e ;
+            color: white;
+            margin-top: 10px;
+        }
+
+        .result {
+            margin-top: 15px;
+            padding: 10px;
+            border: 1px dashed grey;
+            text-align: center;
+        }
+
+    </style>
+</head>
+<body>
+
+    <nav>
+         <a href="index.html">SKU Generator</a>
+        <a href="receipt.html">Receipt Generator</a>
+    </nav>
+
+    <div class="container">
+        <div class="header">
+            <h2>SKU Generator</h2>
+        </div>
+
+        <div class="content">
+            <label>Category</label>
+            <select id="category">
+            <option value="SOL">Solo Figure</option>
+            <option value="CAR">With card</option>
+            <option value="BOX">With box</option>
+            </select>
+
+            <label>Figure Name</label>
+            <input type="text" id="pName" placeholder="e.g. The Pretender">
+
+            <label>Stock Quantity</label>
+            <input type="number" id="qty" placeholder="e.g. 3">
+
+            <button onclick="generateSKU()">Generate SKU</button>
+
+            <div class="result" id="output">
+                SKU
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function generateSKU(){
+            var category = document.getElementById("category").value;
+            var pName = document.getElementById("pName").value;
+            var qty = document.getElementById("qty").value;
+
+            if (pName == "" || qty == "") 
+                alert("Please fill in everything");
+            return;
+            
+    
+        }
+
+        var nameCode = pName.substring(0, 3).toUpperCase();
+        var sku = category + "-" + nameCode + qty;
+
+        document.getElementById("output").innerHTML = "SKU: " + sku;
+    </script>
+    
+</body>
+</html>

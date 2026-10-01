@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SKU Generator</title>
+
+    <style>
+        body {
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            background-color: #532673 ;
+            color: white;
+            text-align: center;
+        }
+
+        nav {
+            background-color: #1e0f2a;
+            padding: 15px;
+            text-align: right;
+        }
+
+        nav a {
+            color: whitesmoke;
+            margin: 0 15px;
+            font-weight: bold;
+        }
+
+        .container {
+            background-color: white;
+            color: black ;
+            width: 350px;
+            margin: 50px auto;
+            border-radius: 10px;
+        }
+
+        .header {
+            background-color: #54356e;
+            color: white;
+            padding: 20px;
+        }
+
+        .content {
+            padding: 20px;
+            text-align: left;
+        }
+
+        .menu-item {
+            margin: 8px 0;
+        }
+
+        button {
+            width: 100%;
+            padding: 8px;
+            background-color:#54356e ;
+            color: white;
+            margin-top: 10px;
+        }
+
+        .result {
+            margin-top: 15px;
+            padding: 10px;
+            border: 1px dashed grey;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    
+    <nav>
+        <a href="index.html">SKU Generator</a>
+        <a href="receipt.html">Receipt Generator</a>
+    </nav>
+
+    <div class="container">
+        <div class="header">
+            <h2>OBMC Entrepreneur Fair </h2>
+            <p>Group 01 - Hirono Market </p>
+        </div>
+
+        <div class="content">
+            <h3>List of Merchandise</h3>
+
+            <div class="menu-item">
+                <input type="checkbox" id="item1" value="500"> The Ghost - The Other One Series - ₱500
+            </div>
+
+            <div class="menu-item">
+                <input type="checkbox" id="item2" value="550"> The Merchant - Le Petit Prince Series - ₱550
+            </div>
+
+            <div class="menu-item">
+                <input type="checkbox" id="item3" value="600"> The Pretender - Little Mischief Series - ₱600
+            </div>
+
+            <div class="menu-item">
+                <input type="checkbox" id="item4" value="650"> Unspoken - Mime Series - ₱500
+            </div>
+
+            <div class="menu-item">
+                <input type="checkbox" id="item5" value="700"> Hiding Behind You - Echo Series - ₱500
+            </div>
+
+            <div class="menu-item">
+                <input type="checkbox" id="item6" value="750"> Overload - Tamed Wildgrass Series - ₱500
+            </div>
+
+            <div class="menu-item">
+                <input type="checkbox" id="item7" value="800"> Chinese - Clot x Hirono Series - ₱800
+            </div>
+
+            <button onclick="calculateTotal()">Place Order</button>
+            Order Summary
+            <div class="result" id="receiptOutput">
+
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function calculateTotal(){
+            var total = 0;
+
+            if (document.getElementById("item1").checked) {total += 500;}
+            if (document.getElementById("item2").checked) {total += 550;}
+            if (document.getElementById("item3").checked) {total += 600;}
+            if (document.getElementById("item4").checked) {total += 650;}
+            if (document.getElementById("item5").checked) {total += 700;}
+            if (document.getElementById("item6").checked) {total += 750;}
+            if (document.getElementById("item7").checked) {total += 800;}
+
+            if (total === 0) {
+                document.getElementById("receiptOutput").innerHTML = "Please select atleast one item.";
+            }
+            else {
+                document.getElementById("receiptOutput").innerHTML = "Total Amount: ₱" + total;
+            }
+        }
+    </script>
+</body>
+</html>
